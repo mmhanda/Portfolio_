@@ -1,18 +1,46 @@
-import React from 'react';
+import { motion } from "framer-motion";
+
+const items = [
+  "Homepage",
+  "Services",
+  "Contact",
+  "About",
+]
+
+const variants = {
+  open: {
+    staggerChildren: 0.01,
+  },
+  closed: {
+    staggerChildren: 0.05,
+    staggerDirection: -1
+  }
+}
+
+const itemVariants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 800, velocity: -100 }
+    }
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 800 }
+    }
+  }
+}
 
 const Links = () => {
-  const items = [
-    "Homepage",
-    "Services",
-    "Contact",
-    "About",
-  ]
   return (
-    <div className='links'>
+    <motion.div className='links' variants={variants}>
       {items.map(item => (
-        <a href={`#${item}`} key={item}> {item}</a>
+        <motion.a href={`#${item}`} key={item} variants={itemVariants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}> {item}</motion.a>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 
 const Navbar = () => {
   return (
-    <div className='navbar'>
+    <div className='navbar '>
       {/* {side bar} */}
       <div className='wrapper'>
         <motion.span initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1.3 }} transition={{ duration: 1.3 }}>M.Handa</motion.span>
