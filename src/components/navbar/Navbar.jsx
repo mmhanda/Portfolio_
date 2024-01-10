@@ -1,18 +1,24 @@
-import './navbar.scss'
-import { motion } from "framer-motion"
+import Sidebar from "../sidebar/Sidebar";
+import "./navbar.scss";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   return (
-    <div className='navbar '>
-      {/* {side bar} */}
-      <div className='wrapper'>
-        <motion.span initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1.3 }} transition={{ duration: 1.3 }}>M.Handa</motion.span>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }} className='social'>
-          <a href=''> <img src='/facebook.png' alt='facebook image' /> </a>
-          <a href=''> <img src='/instagram.png' alt='instagram image' /> </a>
-          <a href=''> <img src='/dribbble.png' alt='dribbble image' /> </a>
-          <a href=''> <img src='/youtube.png' alt='youtube image' /> </a>
-        </motion.div>
+    <div className="navbar">
+      <Sidebar />
+      <div className="wrapper">
+        <motion.span
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          Handa
+        </motion.span>
+        <div className="social">
+          <a href="https://www.linkedin.com/in/mohammed-handa-b5392024b/" target="_blank">
+            <img src="/linkedin.png" alt="linkedin" />
+          </a>
+        </div>
       </div>
     </div>
   );
