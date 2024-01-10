@@ -5,9 +5,10 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const items = [
   {
     id: 1,
-    title: "React Commerce",
-    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "E-Commerce Website, MERN Stack",
+    img: "https://camo.githubusercontent.com/ca3b441b54a86c28842381a9a9c2227766bc4da3873326a644624a8e865c8259/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f313131363438363136383737313535393433352f313134363034383330333933313333343731372f53637265656e73686f745f66726f6d5f323032332d30382d32395f31322d34352d34342e706e67",
+    desc: "My first project using React.js and Redux. It is a fully functional e-commerce website with a shopping cart and a payment gateway. It also has a sign-in and sign-up page. It is a responsive website and can be used on mobile devices as well Admin Dashboard is also available.",
+    link: "https://shop-xv4n.onrender.com/"
   },
   {
     id: 2,
@@ -38,6 +39,9 @@ const Single = ({ item }) => {
 
   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
 
+  const handleClick = (link) => {
+    window.open(link, "_blank");
+  }
   return (
     <section >
       <div className="container">
@@ -45,10 +49,10 @@ const Single = ({ item }) => {
           <div className="imageContainer" ref={ref}>
             <img src={item.img} alt="" />
           </div>
-          <motion.div className="textContainer" style={{y}}>
+          <motion.div className="textContainer" style={{ y }}>
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
-            <button>See Demo</button>
+            <button onClick={() => handleClick(item.link)}>See Live</button>
           </motion.div>
         </div>
       </div>
@@ -72,7 +76,7 @@ const Portfolio = () => {
   return (
     <div className="portfolio" ref={ref}>
       <div className="progress">
-        <h1>Featured Works</h1>
+        <h1>My Projects</h1>
         <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
       {items.map((item) => (
